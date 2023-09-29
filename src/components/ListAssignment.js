@@ -75,13 +75,7 @@ function ListAssignment(props) {
   const closeAddDialog = () => {
     setIsAddDialogOpen(false);
   };
-  const handleGradeLinkClick = (assignmentId) => {
-    console.log('Grade link clicked for assignment ID:', assignmentId);
-
-    // Here, you can add any code specific to handling the "Grade" link click.
-    // Ensure that you're not accidentally setting isEditDialogOpen to true.
-    // You can also check the value of isEditDialogOpen here.
-  };
+ 
 
   
   
