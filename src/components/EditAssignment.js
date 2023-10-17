@@ -87,6 +87,7 @@ function EditAssignment({assignment , onClose,reload}) {
               <label style={{ marginRight: '10px' }}>Assignment Name:</label>
               <input
                 type="text"
+                id="assignment-name" 
                 name="assignmentName"
                 value={edited_Assignment.assignmentName}
                 onChange={handleChange}
@@ -118,11 +119,12 @@ function EditAssignment({assignment , onClose,reload}) {
           <Button onClick={onClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary">
+          <Button id="save-assignment" onClick={handleSubmit} color="primary">
             Update Assignment
           </Button>
         </DialogActions>
       </Dialog>
+        <div id="assignment-message" style={{ color: 'red' }}>{message}</div> {/* Assignment updated Success*/}
         </div>
       );
     
