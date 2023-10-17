@@ -75,13 +75,14 @@ const handleSubmit = () => {
 
 return (
   <div>
-  <Button variant='outlined' color='primary' onClick={handleOpenDialog}>Add Assignment</Button>
+  <Button id="add-button2" variant='outlined' color='primary' onClick={handleOpenDialog}>Add Assignment</Button>
   <Dialog open={open} onClose={handleCloseDialog}>
     <DialogTitle>AddAssignment</DialogTitle>
     <DialogContent>
     
       <TextField
           label="Assignment Name"
+          id='assignment-name'
           variant="outlined"
           fullWidth
           name="assignmentName"
@@ -90,6 +91,7 @@ return (
       </TextField>
       <TextField
           label="Course ID"
+          id='assignment-id'
           variant="outlined"
           name='courseId'
           onChange={(e) => setCourseId(e.target.value)}
@@ -98,6 +100,7 @@ return (
       </TextField>
       <TextField
           variant="outlined"
+          id='assignment-date'
           fullWidth
           name="dueDate"
           type="date"
@@ -109,15 +112,16 @@ return (
       <Button onClick={handleCloseDialog} color='primary'>
         Cancel
       </Button>
-      <Button onClick={handleSubmit} color='primary' type='submit'>
+      <Button id="submit-button" onClick={handleSubmit} color='primary' type='submit'>
         Submit
       </Button>
     </DialogActions>
     </Dialog>
-    {message && <p>{message}</p>}
+    {message && <p id="message-id">{message}</p>}
 </div>
 );
 
 }
 
 export default AddAssignment;
+

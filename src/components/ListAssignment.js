@@ -55,6 +55,7 @@ function ListAssignment(props) {
   
   
   
+  
 
   
   const openEditDialog = (assignment) => {
@@ -96,21 +97,21 @@ function ListAssignment(props) {
                 <tbody>
                   {assignments.map((row, idx) => (
                     <tr key={idx}>
-                      <td>{row.assignmentName}</td>
-                      <td>{row.courseTitle}</td>
+                      <td id={`assignment-id${row.id}`}>{row.assignmentName}</td>
+                      <td id={`course-title-${row.id}`}>{row.courseTitle}</td>
                       <td>{row.dueDate}</td>
                       <td>
                       <Link to={`/gradeAssignment/${row.id}`}>
                         Grade</Link>
                       </td>
-                      <td><button onClick={() => openEditDialog(row)}>Edit</button></td>
-                <td><button onClick={() => handleDelete(assignments[idx].id)}>Delete</button></td>
+                      <td><button id="edit-button" onClick={() => openEditDialog(row)}>Edit</button></td>
+                <td><button id="delete-button" onClick={() => handleDelete(assignments[idx].id)}>Delete</button></td>
                       
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <button onClick={() => openAddDialog()}>Add</button>
+              <button id ="add-button1" onClick={() => openAddDialog()}>Add</button>
           </div>
           
           {isEditDialogOpen && (
