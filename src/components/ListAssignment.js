@@ -16,6 +16,7 @@ function ListAssignment(props) {
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [selectedAssignment, setSelectedAssignment] = useState(null);
+  const token = sessionStorage.getItem("jwt");
 
   useEffect(() => {
    // called once after intial render
@@ -27,7 +28,9 @@ function ListAssignment(props) {
 
   const fetchAssignments = () => {
     console.log("fetchAssignments");
-    fetch(`${SERVER_URL}/assignment`)
+    fetch(`${SERVER_URL}/assignment`, {
+      headers: {'Authorization' : token}
+    })
     .then((response) => response.json() ) 
     .then((data) => { 
       console.log("assignment length "+data.length);
@@ -39,6 +42,7 @@ function ListAssignment(props) {
   const handleDelete = (assignment_id) => {
     fetch(`${SERVER_URL}/assignment/${assignment_id}?force=true`, {
       method: 'DELETE',
+      headers: {'Authorization' : token}
     })
       .then((response) =>  {
         if (response.ok) {
